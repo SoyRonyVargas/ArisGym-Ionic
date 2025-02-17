@@ -34,6 +34,8 @@ import '@ionic/vue/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+console.log('Hola');
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
@@ -41,3 +43,5 @@ const app = createApp(App)
 router.isReady().then(() => {
   app.mount('#app');
 });
+
+debugger
