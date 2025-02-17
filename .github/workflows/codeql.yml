@@ -51,14 +51,25 @@ jobs:
       with:
         category: "/language:${{matrix.language}}"
 
-    - name: Comment on PR
-      if: github.event_name == 'pull_request'  # Solo se ejecuta en PRs
+    - name: Comment on PR (Success)
+      if: github.event_name == 'pull_request' && success()  # Solo si el job es exitoso
       uses: peter-evans/create-or-update-comment@v3
       with:
-        issue-number: ${{ github.event.pull_request.number }}  # Número del PR
+        issue-number: ${{ github.event.pull_request.number }}
         body: |
-          ## Tu codigo pasó, no estas pendejo/pendeja
-          Tambien el análisis de CodeQL se ha completado. Aquí está el resumen:
+          ✅ Tu codigo pasó, no estas pendejo/pendeja
+          El análisis de CodeQL se ha completado **exitosamente**. Aquí está el resumen:
           - **Lenguaje analizado**: ${{ matrix.language }}
-          - **Resultados**: [Ver informe de CodeQL](${{ github.server_url }}/${{ github.repository }}/security/code-scanning)
-        edit-mode: replace  # Reemplaza el comentario anterior si existe
+        edit-mode: replace
+
+    - name: Comment on PR (Failure)
+      if: github.event_name == 'pull_request' && failure()  # Solo si el job falla
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          ❌ Tas pendejooooooooooo
+          El análisis de CodeQL **ha fallado**. Por favor, revisa los errores en la ejecución del workflow:
+          - **Lenguaje analizado**: ${{ matrix.language }}
+          - **Detalles del error**: [Ver logs del workflow](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+        edit-mode: replace
