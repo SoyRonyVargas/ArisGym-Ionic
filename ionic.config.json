@@ -1,0 +1,7 @@
+{
+  "name": "ArisGym",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
