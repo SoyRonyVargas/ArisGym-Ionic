@@ -57,7 +57,7 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          ✅ Tu codigo pasó, no estas pendejo/pendeja
+          ## ✅ Tu codigo pasó, no estas pendejo/pendeja
           El análisis de CodeQL se ha completado **exitosamente**. Aquí está el resumen:
           - **Lenguaje analizado**: ${{ matrix.language }}
         edit-mode: replace
@@ -68,7 +68,7 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
-          ❌ Tas pendejooooooooooo
+          ## ❌ Tas pendejooooooooooo
           El análisis de CodeQL **ha fallado**. Por favor, revisa los errores en la ejecución del workflow:
           - **Lenguaje analizado**: ${{ matrix.language }}
           - **Detalles del error**: [Ver logs del workflow](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
