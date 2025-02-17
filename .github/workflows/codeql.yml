@@ -57,7 +57,8 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}  # Número del PR
         body: |
-          El análisis de CodeQL se ha completado. Aquí está el resumen:
+          ## Tu codigo pasó, no estas pendejo/pendeja
+          Tambien el análisis de CodeQL se ha completado. Aquí está el resumen:
           - **Lenguaje analizado**: ${{ matrix.language }}
           - **Resultados**: [Ver informe de CodeQL](${{ github.server_url }}/${{ github.repository }}/security/code-scanning)
         edit-mode: replace  # Reemplaza el comentario anterior si existe
