@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
+        <ion-title>ARISGYM 1 xd</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -11,8 +11,10 @@
           <ion-title size="large">Tab 1</ion-title>
         </ion-toolbar>
       </ion-header>
-
-      <ExploreContainer name="Tab 1 page" />
+      
+      <p style="color: red;">Sexoooooooooooooooo</p>
+      <ExploreContainer name=" LA MEJOR MAMADA ES LA DE EDISON" />
+      <button>Hola</button>
     </ion-content>
   </ion-page>
 </template>
