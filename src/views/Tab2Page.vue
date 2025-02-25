@@ -2,10 +2,12 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 2</ion-title>
+        <ion-title>ARISGYM</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
+      <ion-searchbar animated="true" placeholder="Buscar"></ion-searchbar>
+
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Tab 2</ion-title>
