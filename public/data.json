@@ -1,0 +1,38 @@
+{
+     "tiposDeAlimento": [
+      { "id": 1, "nombre": "Carne", "imagen": "/src/assets/carne.png", "descripcion": "Proteínas esenciales para el crecimiento y reparación del cuerpo." },
+    { "id": 2, "nombre": "Lácteos", "imagen": "/src/assets/lacteos.png", "descripcion": "Ricos en calcio y vitamina D para huesos fuertes." },
+    { "id": 3, "nombre": "Frutas", "imagen": "/src/assets/frutas.png", "descripcion": "Fuentes naturales de vitaminas, minerales y fibra." },
+    { "id": 4, "nombre": "Verduras", "imagen": "/src/assets/verduras.png", "descripcion": "Bajas en calorías y ricas en nutrientes esenciales." },
+    { "id": 5, "nombre": "Legumbres", "imagen": "/src/assets/legumbres.png", "descripcion": "Altas en proteínas y fibra, ideales para una dieta equilibrada." },
+    { "id": 6, "nombre": "Carbohidratos", "imagen": "/src/assets/carbohidratos.png", "descripcion": "Fuente principal de energía para el cuerpo, esenciales para el funcionamiento diario." }
+     
+  ],
+     "alimentos": [
+       { "id": 1, "nombre": "Pollo", "calorias": 239, "tipoId": 1, "imagen": "/src/assets/pollo.png" },
+       { "id": 2, "nombre": "Res", "calorias": 250, "tipoId": 1, "imagen": "/src/assets/res.png" },
+       { "id": 3, "nombre": "Cerdo", "calorias": 242, "tipoId": 1, "imagen": "/src/assets/cerdo.png" },
+       { "id": 4, "nombre": "Cordero", "calorias": 294, "tipoId": 1, "imagen": "/src/assets/cordero.png" },
+       { "id": 5, "nombre": "Pavo", "calorias": 189, "tipoId": 1, "imagen": "/src/assets/pavo.png" },
+       { "id": 6, "nombre": "Leche", "calorias": 42, "tipoId": 2, "imagen": "/src/assets/leche.png" },
+       { "id": 7, "nombre": "Queso", "calorias": 402, "tipoId": 2, "imagen": "/src/assets/queso.png" },
+       { "id": 8, "nombre": "Yogur", "calorias": 59, "tipoId": 2, "imagen": "/src/assets/yogur.png" },
+       { "id": 9, "nombre": "Mantequilla", "calorias": 717, "tipoId": 2, "imagen": "/src/assets/mantequilla.png" },
+       { "id": 10, "nombre": "Crema", "calorias": 345, "tipoId": 2, "imagen": "/src/assets/crema.png" },
+       { "id": 11, "nombre": "Manzana", "calorias": 52, "tipoId": 3, "imagen": "/src/assets/manzana.png" },
+       { "id": 12, "nombre": "Banana", "calorias": 96, "tipoId": 3, "imagen": "/src/assets/banana.png" },
+       { "id": 13, "nombre": "Naranja", "calorias": 47, "tipoId": 3, "imagen": "/src/assets/naranja.png" },
+       { "id": 14, "nombre": "Fresa", "calorias": 32, "tipoId": 3, "imagen": "/src/assets/fresa.png" },
+       { "id": 15, "nombre": "Uva", "calorias": 69, "tipoId": 3, "imagen": "/src/assets/uva.png" },
+       { "id": 16, "nombre": "Zanahoria", "calorias": 41, "tipoId": 4, "imagen": "/src/assets/zanahoria.png" },
+       { "id": 17, "nombre": "Brócoli", "calorias": 55, "tipoId": 4, "imagen": "/src/assets/brocoli.png" },
+       { "id": 18, "nombre": "Espinaca", "calorias": 23, "tipoId": 4, "imagen": "/src/assets/espinaca.png" },
+       { "id": 19, "nombre": "Tomate", "calorias": 18, "tipoId": 4, "imagen": "/src/assets/tomate.png" },
+       { "id": 20, "nombre": "Pepino", "calorias": 16, "tipoId": 4, "imagen": "/src/assets/pepino.png" },
+       { "id": 21, "nombre": "Lentejas", "calorias": 116, "tipoId": 5, "imagen": "/src/assets/lentejas.png" },
+       { "id": 22, "nombre": "Garbanzos", "calorias": 164, "tipoId": 5, "imagen": "/src/assets/garbanzos.png" },
+       { "id": 23, "nombre": "Frijoles", "calorias": 347, "tipoId": 5, "imagen": "/src/assets/frijoles.png" },
+       { "id": 24, "nombre": "Guisantes", "calorias": 81, "tipoId": 5, "imagen": "/src/assets/guisantes.png" },
+       { "id": 25, "nombre": "Soja", "calorias": 446, "tipoId": 5, "imagen": "/src/assets/soja.png" }
+     ]
+   }
