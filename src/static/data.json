@@ -1,0 +1,26 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "nombre": "Fuerza",
+            "imagen": "/fuerza.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Cardio",
+            "imagen": "/cardio.png"
+        },
+        {
+            "id": 3,
+            "nombre": "Estiramiento",
+            "imagen": "/estiramiento.png"
+        }
+    ],
+    "subcategorias": [
+        {
+            "id": 1,
+            "nombre": "Brazo",
+            "categorias": [ 1 ]
+        }
+    ]
+}
