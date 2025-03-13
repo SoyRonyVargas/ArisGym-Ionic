@@ -21,5 +21,5 @@
 
 <script setup lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { calculatorSharp, ellipse, homeOutline, homeSharp, nutritionOutline, nutritionSharp, square, triangle } from 'ionicons/icons';
+import { calculatorSharp, homeSharp,  nutritionSharp, } from 'ionicons/icons';
 </script>
