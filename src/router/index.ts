@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import TabsPage from '../views/TabsPage.vue'
+import { Component } from 'ionicons/dist/types/stencil-public-runtime';
+import CardioPage from '../views/CardioPage.vue';
+
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,11 +23,6 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab1Page.vue')
       },
       {
-         path: "cardio", component: () => import("@/views/CardioPage.vue") 
-
-      },
-     
-      {
         path: 'tab2',
         component: () => import('@/views/Tab2Page.vue')
       },
@@ -33,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3Page.vue')
       }
     ]
+  },
+
+  { 
+    path: '/tabs/:id',
+    component: CardioPage
   }
 ]
 
