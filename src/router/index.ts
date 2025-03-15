@@ -4,6 +4,7 @@ import TabsPage from '../views/TabsPage.vue'
 import { Component } from 'ionicons/dist/types/stencil-public-runtime';
 import CardioPage from '../views/CardioPage.vue';
 
+import Detallecomida from '@/views/Detallecomida.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -29,6 +30,11 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab3',
         component: () => import('@/views/Tab3Page.vue')
+      }, 
+      {
+path: 'detallescomida/:id',
+component : Detallecomida
+
       }
     ]
   },
