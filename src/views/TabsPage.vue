@@ -8,7 +8,9 @@
         </ion-tab-button>
 
         <ion-tab-button tab="tab2" href="/tabs/tab2">
+
           <ion-icon aria-hidden="true" :icon="nutritionSharp" />
+
         </ion-tab-button>
 
         <ion-tab-button tab="tab3" href="/tabs/tab3">
@@ -21,5 +23,6 @@
 
 <script setup lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { calculatorSharp, homeSharp,  nutritionSharp, } from 'ionicons/icons';
+import { calculatorSharp, ellipse, homeOutline, homeSharp, nutritionOutline, nutritionSharp, square, triangle } from 'ionicons/icons';
+
 </script>
