@@ -33,6 +33,11 @@
        { "id": 22, "nombre": "Garbanzos", "calorias": 164, "tipoId": 5, "imagen": "/src/assets/garbanzos.png" },
        { "id": 23, "nombre": "Frijoles", "calorias": 347, "tipoId": 5, "imagen": "/src/assets/frijoles.png" },
        { "id": 24, "nombre": "Guisantes", "calorias": 81, "tipoId": 5, "imagen": "/src/assets/guisantes.png" },
-       { "id": 25, "nombre": "Soja", "calorias": 446, "tipoId": 5, "imagen": "/src/assets/soja.png" }
+       { "id": 25, "nombre": "Soja", "calorias": 446, "tipoId": 5, "imagen": "/src/assets/soja.png" },
+       { "id": 26, "nombre": "Arroz", "calorias": 130, "tipoId": 6, "imagen": "/src/assets/arroz.png" },
+       { "id": 27, "nombre": "Pasta", "calorias": 131, "tipoId": 6, "imagen": "/src/assets/pasta.png" },
+       { "id": 28, "nombre": "Pan Integral", "calorias": 250, "tipoId": 6, "imagen": "/src/assets/pan_integral.png" },
+       { "id": 29, "nombre": "Avena", "calorias": 389, "tipoId": 6, "imagen": "/src/assets/avena.png" },
+       { "id": 30, "nombre": "Papa", "calorias": 77, "tipoId": 6, "imagen": "/src/assets/papa.png" }
      ]
    }

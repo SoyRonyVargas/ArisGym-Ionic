@@ -50,9 +50,9 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonCardContent,
+  IonButtons,
   IonBackButton
 } from "@ionic/vue";
-import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 // Import Swiper Vue.js components
@@ -64,25 +64,16 @@ import 'swiper/css/pagination';
 
 // Import required modules
 import { Pagination, Autoplay } from 'swiper/modules';
+import TipodeAlimeno from "@/assets/data.json";
 
-interface TipoDeAlimento {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  imagen: string;
-}
 
-const typeDeAlimento = ref<TipoDeAlimento[]>([]);
 const router = useRouter();
 
-onMounted(async () => {
-  const response = await fetch('/data.json');
-  const data = await response.json();
-  typeDeAlimento.value = data.tiposDeAlimento;
- 
-});
+const typeDeAlimento = TipodeAlimeno.tiposDeAlimento.map(alimento => ({
+  ...alimento,
+}));
 
-const goToDetail = (id: number) => {
+const goToDetail = (id : number) => {
   router.push({ path: `/tabs/detallescomida/${id}` });
 };
 
