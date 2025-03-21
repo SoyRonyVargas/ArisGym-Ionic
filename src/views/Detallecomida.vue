@@ -47,37 +47,16 @@ import {
      IonBackButton
 
 } from "@ionic/vue";
-import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import Tipodealimento from "@/assets/data.json";
 
 
-interface Alimento {
-     id: number;
-     nombre: string;
-     descripcion: string;
-     imagen: string;
-     calorias: number;
-     tipoId: number;
-}
-
-interface TipoDeAlimento {
-     id: number;
-     nombre: string;
-}
-
-const typeDeAlimento = ref<TipoDeAlimento[]>([]);
 const route = useRoute();
-const alimento = ref<Alimento[]>([]);
+const alimentoId = parseInt(route.params.id as string, 10);
 
-
-onMounted(async () => {
-     const response = await fetch('/data.json');
-     const data = await response.json();
-     const alimentoId = parseInt(route.params.id as string, 10);
-     alimento.value = data.alimentos.filter((item: Alimento) => item.tipoId === alimentoId);
-     typeDeAlimento.value = data.tiposDeAlimento.filter((it: TipoDeAlimento) => it.id === alimentoId) || null;
-
-});
+// Filtrar los alimentos y tipos de alimentos directamente desde los datos importados
+const alimento = Tipodealimento.alimentos.filter(item => item.tipoId === alimentoId);
+const typeDeAlimento = Tipodealimento.tiposDeAlimento.filter(it => it.id === alimentoId);
 </script>
 
 <style scoped>
