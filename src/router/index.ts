@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import TabsPage from '../views/TabsPage.vue'
+import { Component } from 'ionicons/dist/types/stencil-public-runtime';
+import CardioPage from '../views/CardioPage.vue';
+
 import Detallecomida from '@/views/Detallecomida.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -21,10 +24,6 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab1Page.vue')
       },
       {
-        path: 'categorias/:id',
-        component: () => import('@/views/Tab1Page.vue')
-      },
-      {
         path: 'tab2',
         component: () => import('@/views/Tab2Page.vue')
       },
@@ -33,12 +32,27 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3Page.vue')
       }, 
       {
+        path: 'fuerza',
+        component: () => import('@/views/FuerzaPage.vue'),
+      },
+      {
+        path: 'cardio',
+        component: () => import('@/views/CardioPage.vue'),
+      },
+      {
+        path: 'estiramiento',
+        component: () => import('@/views/EstiramientoPage.vue'),
+      },
+
+      {
 path: 'detallescomida/:id',
 component : Detallecomida
 
       }
     ]
-  }
+  },
+
+ 
 ]
 
 const router = createRouter({
