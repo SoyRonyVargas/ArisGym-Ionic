@@ -7,24 +7,35 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
-      
       <ion-img src="/Frame 1.jpg" alt="Rutina de ejercicio"></ion-img>
-
       <div class="ion-padding">
         <h1>¡Bienvenido a ARISGYM!</h1>
 
-     
-        <div v-for="item in data.categorias" :key="item.nombre" class="category-item">
-        
-          <div class="category-header">
+        <ion-list>
+          <ion-item>
             <ion-icon :icon="barbell" slot="start"></ion-icon>
-            <ion-label>{{ item.nombre }}</ion-label>
-          </div>
-
-          <ion-button @click="handleImageClick" fill="clear" class="category-button">
-            <ion-img :src="item.imagen" alt="Imagen de categoría"></ion-img>
+            <ion-label>Fuerza</ion-label>
+          </ion-item>
+          <ion-button @click="handleImageClick('Fuerza')" fill="clear">
+            <ion-img src="/fuerza.png"></ion-img>
           </ion-button>
-        </div>
+
+          <ion-item>
+            <ion-icon :icon="heart" slot="start"></ion-icon>
+            <ion-label>Cardio</ion-label>
+          </ion-item>
+          <ion-button @click="handleImageClick('Cardio')" fill="clear">
+            <ion-img src="/cardio.png"></ion-img>
+          </ion-button>
+
+          <ion-item>
+            <ion-icon :icon="body" slot="start"></ion-icon>
+            <ion-label>Estiramiento</ion-label>
+          </ion-item>
+          <ion-button @click="handleImageClick('Estiramiento')" fill="clear">
+            <ion-img src="/estiramiento.png"></ion-img>
+          </ion-button>
+        </ion-list>
       </div>
     </ion-content>
   </ion-page>
@@ -38,60 +49,51 @@ import {
   IonTitle,
   IonContent,
   IonImg,
+  IonList,
+  IonItem,
   IonLabel,
   IonIcon,
   IonButton,
 } from "@ionic/vue";
-import { barbell } from "ionicons/icons"; 
-import data from "../static/data.json"; 
+import { barbell, heart, body } from "ionicons/icons"; 
+import { useRouter } from "vue-router"; 
 
-console.log(data);
+const router = useRouter(); 
 
+const handleImageClick = (categoria: string) => {
+  const rutas = {
+    "Fuerza": "/tabs/fuerza",
+    "Cardio": "/tabs/cardio",
+    "Estiramiento": "/tabs/estiramiento",
+  };
 
-const handleImageClick = () => {
-  console.log("¡Botón clickeado!");
+  if (rutas[categoria]) {
+    router.push(rutas[categoria]); 
+  } else {
+    console.log("Categoría no encontrada:", categoria);
+  }
 };
 </script>
 
 <style scoped>
-
 h1 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.category-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 1rem;
-}
-
-.category-header {
-  display: flex;
-  align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.category-header ion-icon {
-  margin-right: 0.5rem;
-  color: var(--ion-color-primary);
+ion-list {
+  background: transparent;
 }
 
-.category-button {
-  width: 100%;
-  text-align: left;
+ion-item {
   --padding-start: 0;
-  --padding-end: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 0.5rem;
 }
 
-.category-button ion-img {
-  width: 120%;
-  max-width: 400px; 
-  height: auto;
-  border-radius: 8px; 
+ion-icon {
+  color: var(--ion-color-primary);
+  margin-right: 0.5rem;
 }
 </style>

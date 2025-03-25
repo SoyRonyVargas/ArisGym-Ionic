@@ -1,4 +1,4 @@
-{
+const data = {
     "categorias": [
         {
             "id": 1,
@@ -30,7 +30,37 @@
         {
             "id": 1,
             "nombre": "Caminata",
-            "categorias": 2
-        }
+            "categorias": "cardio"
+        },
+        {
+            "id": 2,
+            "nombre": "Curl de biceps",
+            "categorias": "fuerza"
+        },
+        {
+            "id": 3,
+            "nombre": "cagada en la taaza",
+            "categorias": "pierna"
+        },
+        {
+            "id": 4,
+            "nombre": "Cardio con cupido",
+            "categorias": "cardio"
+        },
     ]
 }
+
+// console.log(data);
+
+const parametroBusqueda = 'cardio'
+
+// url dinamica
+const ejeciciosDeCardio = data.ejercicios
+    .filter( ejercicio => ejercicio.categorias === 'fuerrza' )
+
+
+<div v-for="let item in ejerciciosDeCardix">
+    {
+        item.nombre
+    }
+</div>
