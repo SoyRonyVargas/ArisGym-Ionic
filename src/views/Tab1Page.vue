@@ -2,28 +2,43 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>ARISGYM</ion-title>
+       
+        <img src="/logo.png" alt="icono" class="toolbar-icon" />
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
-      
-      <ion-img src="/Frame 1.jpg" alt="Rutina de ejercicio"></ion-img>
-
+      <img src="/Frame 1.jpg" alt="Rutina de ejercicio"></img>
       <div class="ion-padding">
         <h1>¡Bienvenido a ARISGYM!</h1>
 
-     
-        <div v-for="item in data.categorias" :key="item.nombre" class="category-item">
-        
-          <div class="category-header">
-            <ion-icon :icon="barbell" slot="start"></ion-icon>
-            <ion-label>{{ item.nombre }}</ion-label>
+        <div class="exercise-container">
+          <!-- Fuerza -->
+          <div class="exercise-card" @click="handleImageClick('Fuerza')">
+            <div class="exercise-header">
+              <ion-icon :icon="barbell" class="exercise-icon"></ion-icon>
+              <ion-label class="exercise-label">Fuerza</ion-label>
+            </div>
+            <ion-img src="/fuerza.png" class="exercise-image"></ion-img>
           </div>
 
-          <ion-button @click="handleImageClick" fill="clear" class="category-button">
-            <ion-img :src="item.imagen" alt="Imagen de categoría"></ion-img>
-          </ion-button>
+          <!-- Cardio -->
+          <div class="exercise-card" @click="handleImageClick('Cardio')">
+            <div class="exercise-header">
+              <ion-icon :icon="heart" class="exercise-icon"></ion-icon>
+              <ion-label class="exercise-label">Cardio</ion-label>
+            </div>
+            <ion-img src="/cardio.png" class="exercise-image"></ion-img>
+          </div>
+
+          <!-- Estiramiento -->
+          <div class="exercise-card" @click="handleImageClick('Estiramiento')">
+            <div class="exercise-header">
+              <ion-icon :icon="body" class="exercise-icon"></ion-icon>
+              <ion-label class="exercise-label">Estiramiento</ion-label>
+            </div>
+            <ion-img src="/estiramiento.png" class="exercise-image"></ion-img>
+          </div>
         </div>
       </div>
     </ion-content>
@@ -40,58 +55,68 @@ import {
   IonImg,
   IonLabel,
   IonIcon,
-  IonButton,
 } from "@ionic/vue";
-import { barbell } from "ionicons/icons"; 
-import data from "../static/data.json"; 
+import { barbell, heart, body } from "ionicons/icons"; 
+import { useRouter } from "vue-router"; 
 
-console.log(data);
-
-
-const handleImageClick = () => {
-  console.log("¡Botón clickeado!");
+const router = useRouter(); 
+const handleImageClick = (categoria: string) => {
+  const rutas: Record<string, string> = {
+    "Fuerza": "/tabs/fuerza",
+    "Cardio": "/tabs/cardio",
+    "Estiramiento": "/tabs/estiramiento",
+  };
+  router.push(rutas[categoria]);
 };
 </script>
 
 <style scoped>
-
 h1 {
   font-size: 1.5rem;
   font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.toolbar-icon {
+     align-items: right;
+     width: 15%;
+     height: 15%;
+     object-fit: center;
+     margin-left: 42.5%;
+}
+
+.exercise-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.exercise-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.category-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 1rem;
-}
-
-.category-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.category-header ion-icon {
-  margin-right: 0.5rem;
+.exercise-icon {
+  font-size: 1.5rem;
   color: var(--ion-color-primary);
 }
 
-.category-button {
-  width: 100%;
-  text-align: left;
-  --padding-start: 0;
-  --padding-end: 0;
+.exercise-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
 }
 
-.category-button ion-img {
-  width: 120%;
-  max-width: 400px; 
-  height: auto;
-  border-radius: 8px; 
+.exercise-image {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+ 
 }
 </style>

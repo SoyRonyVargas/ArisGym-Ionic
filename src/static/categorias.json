@@ -3,24 +3,20 @@
         {
             "id": 1,
             "nombre": "Fuerza",
-            "imagen": "/fuerza.png"
+            "imagen": "/fuerza.png",
+            "ruta": "/tabs/tabfuerza"
         },
         {
             "id": 2,
             "nombre": "Cardio",
-            "imagen": "/cardio.png"
+            "imagen": "/cardio.png",
+            "ruta": "/tabs/tabcardio"
         },
         {
             "id": 3,
             "nombre": "Estiramiento",
-            "imagen": "/estiramiento.png"
-        }
-    ],
-    "subcategorias": [
-        {
-            "id": 1,
-            "nombre": "Brazo",
-            "categorias": [ 1 ]
+            "imagen": "/estiramiento.png",
+            "ruta": "/tabs/tabestiramiento"
         }
     ]
 }
