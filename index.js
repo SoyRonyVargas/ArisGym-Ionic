@@ -56,11 +56,10 @@ const parametroBusqueda = 'cardio'
 
 // url dinamica
 const ejeciciosDeCardio = data.ejercicios
-    .filter( ejercicio => ejercicio.categorias === 'fuerrza' )
+    .filter( ejercicio => ejercicio.categorias === 'fuerza' )
 
 
-<div v-for="let item in ejerciciosDeCardix">
-    {
-        item.nombre
-    }
-</div>
+//<div v-for="let item in ejerciciosDeCardix">
+  ////    item.nombre
+    //}
+//</div>

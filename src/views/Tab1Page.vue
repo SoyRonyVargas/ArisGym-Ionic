@@ -59,20 +59,26 @@ import { barbell, heart, body } from "ionicons/icons";
 import { useRouter } from "vue-router"; 
 
 const router = useRouter(); 
-
-const handleImageClick = (categoria: string) => {
-  const rutas = {
+const handleImageClick = (categoria: 'Fuerza' | 'Cardio' | 'Estiramiento') => {
+  const rutas: { [key in 'Fuerza' | 'Cardio' | 'Estiramiento']: string } = {
     "Fuerza": "/tabs/fuerza",
     "Cardio": "/tabs/cardio",
     "Estiramiento": "/tabs/estiramiento",
   };
 
   if (rutas[categoria]) {
-    router.push(rutas[categoria]); 
+    router.push(rutas[categoria]); // Redirigir según la categoría
   } else {
     console.log("Categoría no encontrada:", categoria);
   }
 };
+{
+  const goToDetail = (id: string) => {
+    router.push({path: '/tabs/CardioPage/${id}'});
+  }
+};
+
+
 </script>
 
 <style scoped>
