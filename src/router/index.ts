@@ -32,6 +32,19 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3Page.vue')
       }, 
       {
+        path: 'fuerza',
+        component: () => import('@/views/FuerzaPage.vue'),
+      },
+      {
+        path: 'cardio',
+        component: () => import('@/views/CardioPage.vue'),
+      },
+      {
+        path: 'estiramiento',
+        component: () => import('@/views/EstiramientoPage.vue'),
+      },
+
+      {
 path: 'detallescomida/:id',
 component : Detallecomida
 
@@ -39,10 +52,7 @@ component : Detallecomida
     ]
   },
 
-  { 
-    path: '/tabs/:id',
-    component: CardioPage
-  }
+ 
 ]
 
 const router = createRouter({
