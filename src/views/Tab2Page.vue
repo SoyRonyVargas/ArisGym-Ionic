@@ -10,19 +10,15 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
-      <swiper class="myslidetap2" :modules="modules" :pagination="true"  :autoplay="{ delay: 5000 }">
-        <swiper-slide><img src="../assets/Frame 3.png" alt="promocional" class="swiper-image"></swiper-slide>
-        <swiper-slide><img src="../assets/Frame 1.jpg" alt="promocional 2" class="swiper-image"></swiper-slide>
-        <swiper-slide><img src="../assets/angel.png" alt="promocional 3" class="swiper-image"></swiper-slide>
-      </swiper>
+      
+      <img src="../assets/Frame 3.png" alt="promocional" class="banner-image">
+      
       <div class="presentacion">
         <h1>¡Bienvenido a ARISFOOD!</h1>
         <div class="divider"></div>
         <p>En esta sección encontrarás información sobre los alimentos saludables que puedes consumir para mejorar tu rendimiento en el gimnasio.</p>
-      
         <div class="divider"></div>
       </div>
-      
 
       <ion-card v-for="tipo in typeDeAlimento" :key="tipo.id" @click="goToDetail(tipo.id)">
         <img :alt="tipo.nombre" :src="tipo.imagen" class="card-image" />
@@ -55,16 +51,6 @@ import {
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-// Import required modules
-import { Pagination, Autoplay } from 'swiper/modules';
-
 interface TipoDeAlimento {
   id: number;
   nombre: string;
@@ -79,52 +65,40 @@ onMounted(async () => {
   const response = await fetch('/data.json');
   const data = await response.json();
   typeDeAlimento.value = data.tiposDeAlimento;
- 
 });
 
 const goToDetail = (id: number) => {
   router.push({ path: `/tabs/detallescomida/${id}` });
 };
-
-
-const modules = [Pagination, Autoplay];
-
-
 </script>
 
 <style scoped>
 .card-image {
-  width: 400%;
+  width: 100%;
   height: 238px;
   object-fit: cover;
 }
 
-.myslidetap2 {
-  border-radius: 10px;
+.banner-image {
   width: 95%;
-  height: 35%;
+  height: auto;
   margin: 10px auto;
-
-  
+  display: block;
+  border-radius: 10px;
   border: 1px solid #000;
 }
 
-.swiper-image {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
 .divider {
   height: 2px;
   background-color: #007aff;
   margin: 20px auto; 
   border-radius: 1px;
   width: 30%; 
-  
 }
+
 .presentacion {
   text-align: center;
-  margin: 20% 10% 20% 10%;
+  margin: 20px 10%;
   font-size: 20px;
 }
 </style>

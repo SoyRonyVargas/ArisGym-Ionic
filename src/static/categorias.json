@@ -18,19 +18,5 @@
             "imagen": "/estiramiento.png",
             "ruta": "/tabs/tabestiramiento"
         }
-    ],
-    "subcategorias": [
-        {
-            "id": 1,
-            "nombre": "Brazo",
-            "categorias": 1
-        }
-    ],
-    "ejercicios": [
-        {
-            "id": 1,
-            "nombre": "Caminata",
-            "categorias": 2
-        }
     ]
 }
