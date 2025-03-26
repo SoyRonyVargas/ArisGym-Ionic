@@ -1,17 +1,34 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue';
+import TabsPage from '../views/TabsPage.vue'
 import Detallecomida from '@/views/Detallecomida.vue';
-import DetalleFuerza from '@/views/DetalleFuerza.vue';
+import Login from '@/views/Login.vue';
+import Register from '@/views/Register.vue';
+
+const isAuthenticated = () => !!localStorage.getItem('user');
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: isAuthenticated() ? '/tabs/tab1' : '/login'
   },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/register',
+    component: Register
+  },
+  
+  //{
+   // path: '/',
+  //  redirect: '/tabs/tab1'
+  //},
   {
     path: '/tabs/',
     component: TabsPage,
+    meta: { requiresAuth: true }, // 🔒 Protección de rutas
     children: [
       {
         path: '',
@@ -28,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab3',
         component: () => import('@/views/Tab3Page.vue')
-      },
+      }, 
       {
         path: 'fuerza',
         component: () => import('@/views/FuerzaPage.vue'),
@@ -41,21 +58,29 @@ const routes: Array<RouteRecordRaw> = [
         path: 'estiramiento',
         component: () => import('@/views/EstiramientoPage.vue'),
       },
+
       {
-        path: 'detallescomida/:id',
-        component: Detallecomida
-      },
-      {
-        path: 'detallesfuerza/:id', // Ruta dinámica para DetalleFuerza
-        component: DetalleFuerza
+path: 'detallescomida/:id',
+component : Detallecomida
+
       }
     ]
-  }
-];
+  },
+
+ 
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
 });
 
-export default router;
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth && !isAuthenticated()) {
+    next('/login'); // Si no está autenticado, va al login
+  } else {
+    next();
+  }
+});
+
+export default router

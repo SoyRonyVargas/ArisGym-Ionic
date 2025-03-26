@@ -4,6 +4,11 @@
       <ion-toolbar>
        
         <img src="/logo.png" alt="icono" class="toolbar-icon" />
+        <ion-buttons slot="end">
+          <ion-button @click="logout">
+            <ion-icon :icon="logOut" slot="icon-only" />
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
@@ -13,7 +18,7 @@
         <h1>¡Bienvenido a ARISGYM!</h1>
 
         <div class="exercise-container">
-          <!-- Fuerza -->
+          
           <div class="exercise-card" @click="handleImageClick('Fuerza')">
             <div class="exercise-header">
               <ion-icon :icon="barbell" class="exercise-icon"></ion-icon>
@@ -22,7 +27,7 @@
             <ion-img src="/fuerza.png" class="exercise-image"></ion-img>
           </div>
 
-          <!-- Cardio -->
+         
           <div class="exercise-card" @click="handleImageClick('Cardio')">
             <div class="exercise-header">
               <ion-icon :icon="heart" class="exercise-icon"></ion-icon>
@@ -31,7 +36,7 @@
             <ion-img src="/cardio.png" class="exercise-image"></ion-img>
           </div>
 
-          <!-- Estiramiento -->
+         
           <div class="exercise-card" @click="handleImageClick('Estiramiento')">
             <div class="exercise-header">
               <ion-icon :icon="body" class="exercise-icon"></ion-icon>
@@ -55,8 +60,10 @@ import {
   IonImg,
   IonLabel,
   IonIcon,
+  IonButton,
+  IonButtons,
 } from "@ionic/vue";
-import { barbell, heart, body } from "ionicons/icons"; 
+import { barbell, heart, body ,logOut} from "ionicons/icons"; 
 import { useRouter } from "vue-router"; 
 
 const router = useRouter(); 
@@ -67,6 +74,14 @@ const handleImageClick = (categoria: string) => {
     "Estiramiento": "/tabs/estiramiento",
   };
   router.push(rutas[categoria]);
+};
+
+const logout = () => {
+  // Eliminar la sesión o el token guardado, si es necesario
+  localStorage.removeItem('user'); // Elimina el usuario guardado
+
+  // Redirigir al login
+  router.push('/login');
 };
 </script>
 
@@ -82,7 +97,7 @@ h1 {
      width: 15%;
      height: 15%;
      object-fit: center;
-     margin-left: 42.5%;
+     margin-left:50%;
 }
 
 .exercise-container {
@@ -119,4 +134,5 @@ h1 {
   margin-bottom: 1rem;
  
 }
+
 </style>
