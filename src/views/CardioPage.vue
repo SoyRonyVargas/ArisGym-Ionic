@@ -7,7 +7,7 @@
       
     </ion-buttons>
     <ion-title>ARISGYM - Cardio</ion-title>
-    <img src="../assets/image.png" alt="icono" class="toolbar-icon" />
+    <img src="/image.png" alt="icono" class="toolbar-icon" />
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">

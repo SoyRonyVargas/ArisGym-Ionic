@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-back-button default-href="/tabs/Fuerza"></ion-back-button>
         </ion-buttons>
-        <img src="../assets/image.png" alt="icono" class="toolbar-icon" />
+        <img src="/image.png" alt="icono" class="toolbar-icon" />
         <ion-title>Ejercicios - {{ tipoEjercicio[0]?.nombre }}</ion-title>
       </ion-toolbar>
     </ion-header>
