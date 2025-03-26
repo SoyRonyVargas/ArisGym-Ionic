@@ -6,22 +6,13 @@
           <ion-back-button default-href="#"></ion-back-button>
         </ion-buttons>
         <ion-title>ARISGYM - Estiramiento</ion-title>
-        <img src="../assets/image.png" alt="icono" class="toolbar-icon" />
+        <img src="/image.png" alt="icono" class="toolbar-icon" />
       </ion-toolbar>
     </ion-header>
-    <ion-page>
-      <ion-header>
-        <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="#"></ion-back-button>
-      
-    </ion-buttons>
-    <ion-title>ARISGYM - Estiramiento</ion-title>
-    <img src="/image.png" alt="icono" class="toolbar-icon" />
-        </ion-toolbar>
-      </ion-header>
-      <ion-content :fullscreen="true">
-    
+  
+     
+ 
+  
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
