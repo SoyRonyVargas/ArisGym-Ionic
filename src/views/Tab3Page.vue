@@ -176,7 +176,10 @@ const initChart = () => {
 
   // Procesar datos
   const groupedData = entries.value.reduce((acc, entry) => {
-    acc[entry.date] = (acc[entry.date] || 0) + entry.calories;
+    const calories = Number(entry.calories); // Convertir explícitamente a número
+    if (!isNaN(calories)) {
+      acc[entry.date] = (acc[entry.date] || 0) + calories;
+    }
     return acc;
   }, {} as Record<string, number>);
 
