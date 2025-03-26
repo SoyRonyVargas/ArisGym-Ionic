@@ -1,6 +1,6 @@
 {
      "tiposDeAlimento": [
-      { "id": 1, "nombre": "Carne", "imagen": "/src/assets/carne.png", "descripcion": "Proteínas esenciales para el crecimiento y reparación del cuerpo." },
+      { "id": 1, "nombre": "Carne", "imagen": "/carne.png", "descripcion": "Proteínas esenciales para el crecimiento y reparación del cuerpo." },
     { "id": 2, "nombre": "Lácteos", "imagen": "/src/assets/lacteos.png", "descripcion": "Ricos en calcio y vitamina D para huesos fuertes." },
     { "id": 3, "nombre": "Frutas", "imagen": "/src/assets/frutas.png", "descripcion": "Fuentes naturales de vitaminas, minerales y fibra." },
     { "id": 4, "nombre": "Verduras", "imagen": "/src/assets/verduras.png", "descripcion": "Bajas en calorías y ricas en nutrientes esenciales." },
