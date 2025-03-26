@@ -46,28 +46,33 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonCardContent,
+  IonButtons,
   IonBackButton
 } from "@ionic/vue";
-import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
-interface TipoDeAlimento {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  imagen: string;
-}
 
-const typeDeAlimento = ref<TipoDeAlimento[]>([]);
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// Import required modules
+import { Pagination, Autoplay } from 'swiper/modules';
+import TipodeAlimeno from "@/assets/data.json";
+
+
+
 const router = useRouter();
 
-onMounted(async () => {
-  const response = await fetch('/data.json');
-  const data = await response.json();
-  typeDeAlimento.value = data.tiposDeAlimento;
-});
 
-const goToDetail = (id: number) => {
+const typeDeAlimento = TipodeAlimeno.tiposDeAlimento.map(alimento => ({
+  ...alimento,
+}));
+
+const goToDetail = (id : number) => {
   router.push({ path: `/tabs/detallescomida/${id}` });
 };
 </script>
@@ -80,12 +85,12 @@ const goToDetail = (id: number) => {
 }
 
 .banner-image {
-  width: 95%;
-  height: auto;
-  margin: 10px auto;
+  width: 100%;
+  height: 30%;
+
   display: block;
-  border-radius: 10px;
-  border: 1px solid #000;
+
+  object-fit: cover;
 }
 
 .divider {

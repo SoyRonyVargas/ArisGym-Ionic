@@ -33,6 +33,52 @@
        { "id": 22, "nombre": "Garbanzos", "calorias": 164, "tipoId": 5, "imagen": "/src/assets/garbanzos.png" },
        { "id": 23, "nombre": "Frijoles", "calorias": 347, "tipoId": 5, "imagen": "/src/assets/frijoles.png" },
        { "id": 24, "nombre": "Guisantes", "calorias": 81, "tipoId": 5, "imagen": "/src/assets/guisantes.png" },
-       { "id": 25, "nombre": "Soja", "calorias": 446, "tipoId": 5, "imagen": "/src/assets/soja.png" }
-     ]
+       { "id": 25, "nombre": "Soja", "calorias": 446, "tipoId": 5, "imagen": "/src/assets/soja.png" },
+       { "id": 26, "nombre": "Arroz", "calorias": 130, "tipoId": 6, "imagen": "/src/assets/arroz.png" },
+       { "id": 27, "nombre": "Pasta", "calorias": 131, "tipoId": 6, "imagen": "/src/assets/pasta.png" },
+       { "id": 28, "nombre": "Pan Integral", "calorias": 250, "tipoId": 6, "imagen": "/src/assets/pan_integral.png" },
+       { "id": 29, "nombre": "Avena", "calorias": 389, "tipoId": 6, "imagen": "/src/assets/avena.png" },
+       { "id": 30, "nombre": "Papa", "calorias": 77, "tipoId": 6, "imagen": "/src/assets/papa.png" }
+     
+      ],
+      "tiposDeEjercicio": [
+        { "id": 1, "nombre": "Bíceps", "imagen": "/src/assets/biceps.png", "descripcion": "Ejercicios para fortalecer los músculos del bíceps." },
+        { "id": 2, "nombre": "Tríceps", "imagen": "/src/assets/triceps.png", "descripcion": "Ejercicios para trabajar los músculos del tríceps." },
+        { "id": 3, "nombre": "Hombros", "imagen": "/src/assets/hombros.png", "descripcion": "Ejercicios para desarrollar los músculos de los hombros." },
+        { "id": 4, "nombre": "Piernas", "imagen": "/src/assets/piernas.png", "descripcion": "Ejercicios para fortalecer los músculos de las piernas." },
+        { "id": 5, "nombre": "Pecho", "imagen": "/src/assets/pecho.png", "descripcion": "Ejercicios para trabajar los músculos del pecho." },
+        { "id": 6, "nombre": "Espalda", "imagen": "/src/assets/espalda.png", "descripcion": "Ejercicios para fortalecer los músculos de la espalda." }
+      ],
+      "ejercicios": [
+        { "id": 1, "nombre": "Curl con barra", "tipoEjercicioId": 1, "imagen": "/src/assets/curl_barra.png", "descripcion": "Ejercicio básico para trabajar los bíceps con barra." },
+        { "id": 2, "nombre": "Curl con mancuernas", "tipoEjercicioId": 1, "imagen": "/src/assets/curl_mancuernas.png", "descripcion": "Ejercicio para trabajar los bíceps con mancuernas." },
+        { "id": 3, "nombre": "Curl martillo", "tipoEjercicioId": 1, "imagen": "/src/assets/curl_martillo.png", "descripcion": "Ejercicio para trabajar los bíceps y el braquial." },
+        { "id": 4, "nombre": "Curl concentrado", "tipoEjercicioId": 1, "imagen": "/src/assets/curl_concentrado.png", "descripcion": "Ejercicio para aislar los bíceps." },
+        { "id": 5, "nombre": "Curl en banco inclinado", "tipoEjercicioId": 1, "imagen": "/src/assets/curl_banco_inclinado.png", "descripcion": "Ejercicio para trabajar los bíceps en un ángulo diferente." },
+        { "id": 6, "nombre": "Extensiones de tríceps", "tipoEjercicioId": 2, "imagen": "/src/assets/extensiones_triceps.png", "descripcion": "Ejercicio para trabajar los tríceps con barra o mancuernas." },
+        { "id": 7, "nombre": "Fondos en paralelas", "tipoEjercicioId": 2, "imagen": "/src/assets/fondos_paralelas.png", "descripcion": "Ejercicio compuesto para trabajar los tríceps y el pecho." },
+        { "id": 8, "nombre": "Patada de tríceps", "tipoEjercicioId": 2, "imagen": "/src/assets/patada_triceps.png", "descripcion": "Ejercicio para aislar los tríceps con mancuernas." },
+        { "id": 9, "nombre": "Press francés", "tipoEjercicioId": 2, "imagen": "/src/assets/press_frances.png", "descripcion": "Ejercicio para trabajar los tríceps con mancuerna." },
+        { "id": 10, "nombre": "Extensiones con cuerda", "tipoEjercicioId": 2, "imagen": "/src/assets/extensiones_cuerda.png", "descripcion": "Ejercicio para trabajar los tríceps en polea." },
+        { "id": 11, "nombre": "Press militar", "tipoEjercicioId": 3, "imagen": "/src/assets/press_militar.png", "descripcion": "Ejercicio básico para trabajar los hombros con barra." },
+        { "id": 12, "nombre": "Elevaciones laterales", "tipoEjercicioId": 3, "imagen": "/src/assets/elevaciones_laterales.png", "descripcion": "Ejercicio para trabajar los deltoides laterales." },
+        { "id": 13, "nombre": "Elevaciones frontales", "tipoEjercicioId": 3, "imagen": "/src/assets/elevaciones_frontales.png", "descripcion": "Ejercicio para trabajar los deltoides frontales." },
+        { "id": 14, "nombre": "Press Arnold", "tipoEjercicioId": 3, "imagen": "/src/assets/press_arnold.png", "descripcion": "Ejercicio para trabajar los hombros con un rango completo." },
+        { "id": 15, "nombre": "Encogimientos de hombros", "tipoEjercicioId": 3, "imagen": "/src/assets/encogimientos_hombros.png", "descripcion": "Ejercicio para trabajar los trapecios." },
+        { "id": 16, "nombre": "Sentadillas", "tipoEjercicioId": 4, "imagen": "/src/assets/sentadillas.png", "descripcion": "Ejercicio compuesto para trabajar las piernas y glúteos." },
+        { "id": 17, "nombre": "Prensa de piernas", "tipoEjercicioId": 4, "imagen": "/src/assets/prensa_piernas.png", "descripcion": "Ejercicio para trabajar los cuádriceps y glúteos." },
+        { "id": 18, "nombre": "Zancadas", "tipoEjercicioId": 4, "imagen": "/src/assets/zancadas.png", "descripcion": "Ejercicio para trabajar las piernas y el equilibrio." },
+        { "id": 19, "nombre": "Extensiones de piernas", "tipoEjercicioId": 4, "imagen": "/src/assets/extensiones_piernas.png", "descripcion": "Ejercicio para aislar los cuádriceps." },
+        { "id": 20, "nombre": "Curl femoral", "tipoEjercicioId": 4, "imagen": "/src/assets/curl_femoral.png", "descripcion": "Ejercicio para trabajar los isquiotibiales." },
+        { "id": 21, "nombre": "Press de banca", "tipoEjercicioId": 5, "imagen": "/src/assets/press_banca.png", "descripcion": "Ejercicio básico para trabajar el pecho con barra." },
+        { "id": 22, "nombre": "Aperturas con mancuernas", "tipoEjercicioId": 5, "imagen": "/src/assets/aperturas_mancuernas.png", "descripcion": "Ejercicio para trabajar el pecho con mancuernas." },
+        { "id": 23, "nombre": "Press inclinado", "tipoEjercicioId": 5, "imagen": "/src/assets/press_inclinado.png", "descripcion": "Ejercicio para trabajar la parte superior del pecho." },
+        { "id": 24, "nombre": "Fondos para pecho", "tipoEjercicioId": 5, "imagen": "/src/assets/fondos_pecho.png", "descripcion": "Ejercicio compuesto para trabajar el pecho y tríceps." },
+        { "id": 25, "nombre": "Crossover en polea", "tipoEjercicioId": 5, "imagen": "/src/assets/crossover_polea.png", "descripcion": "Ejercicio para trabajar el pecho en polea." },
+        { "id": 26, "nombre": "Dominadas", "tipoEjercicioId": 6, "imagen": "/src/assets/dominadas.png", "descripcion": "Ejercicio compuesto para trabajar la espalda y bíceps." },
+        { "id": 27, "nombre": "Remo con barra", "tipoEjercicioId": 6, "imagen": "/src/assets/remo_barra.png", "descripcion": "Ejercicio para trabajar la espalda con barra." },
+        { "id": 28, "nombre": "Remo con mancuernas", "tipoEjercicioId": 6, "imagen": "/src/assets/remo_mancuernas.png", "descripcion": "Ejercicio para trabajar la espalda con mancuernas." },
+        { "id": 29, "nombre": "Jalón al pecho", "tipoEjercicioId": 6, "imagen": "/src/assets/jalon_pecho.png", "descripcion": "Ejercicio para trabajar la espalda en polea." },
+        { "id": 30, "nombre": "Peso muerto", "tipoEjercicioId": 6, "imagen": "/src/assets/peso_muerto.png", "descripcion": "Ejercicio compuesto para trabajar la espalda baja y glúteos." }
+      ]
    }

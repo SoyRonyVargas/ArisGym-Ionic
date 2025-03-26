@@ -2,153 +2,254 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Calculadora de Calorías</ion-title>
-        <ion-buttons slot="end">
-          <ion-button @click="resetAll">Reiniciar</ion-button>
-        </ion-buttons>
+        <ion-title>Registro de Calorías</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true" class="ion-padding">
-      <ion-item>
-        <ion-input v-model="foodName" placeholder="Nombre del alimento"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input v-model.number="calories" type="number" placeholder="Calorías"></ion-input>
-      </ion-item>
-      <ion-button expand="block" @click="addEntry">Agregar</ion-button>
-
-      <ion-list v-if="history.length > 0">
-       
-        <ion-item v-for="(entry, index) in history" :key="index">
-          <ion-label>{{ entry.food }}</ion-label>
-          <ion-label>{{ entry.calories }} kcal</ion-label>
-          <ion-button color="danger" @click="removeEntry(index)">Eliminar</ion-button>
+    <ion-content :fullscreen="true">
+      <div class="ion-padding">
+        <!-- Formulario -->
+        <ion-item>
+          <ion-input
+            v-model="newCalories"
+            type="number"
+            label="Calorías"
+            placeholder="Ej: 300"
+          ></ion-input>
         </ion-item>
-      </ion-list>
 
-      <ion-item>
-        <ion-label><strong>Total:</strong> {{ totalCalories }} kcal</ion-label>
-      </ion-item>
+        <ion-item>
+          <ion-input
+            v-model="newDate"
+            type="date"
+            label="Fecha"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            v-model="newTime"
+            type="time"
+            label="Hora"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            v-model="newDescription"
+            label="Descripción"
+            placeholder="Ej: Almuerzo"
+          ></ion-input>
+        </ion-item>
+
+        <ion-button 
+          expand="block" 
+          @click="addEntry"
+          class="ion-margin-top"
+        >
+          Agregar
+        </ion-button>
+
+        <!-- Gráfica -->
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <!-- Tabla de registros -->
+        <ion-list class="ion-margin-top">
+          <ion-list-header>
+            <ion-label>Historial</ion-label>
+          </ion-list-header>
+
+          <ion-item-sliding v-for="entry in entries" :key="entry.id">
+            <ion-item>
+              <ion-label>
+                <h2>{{ formatDateTime(entry.date, entry.time) }}</h2>
+                <p>{{ entry.description }}</p>
+              </ion-label>
+              <ion-note slot="end" color="primary">
+                {{ entry.calories }} kcal
+              </ion-note>
+            </ion-item>
+
+            <ion-item-options side="end">
+              <ion-item-option color="danger" @click="removeEntry(entry.id)">
+                Eliminar
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+
+          <ion-item v-if="entries.length === 0">
+            <ion-label class="ion-text-center">
+              No hay registros aún
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
----
+<script setup lang="ts">
+import { ref, onMounted, watch } from 'vue';
+import { 
+  IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
+  IonItem, IonInput, IonButton, IonList, IonListHeader,
+  IonLabel, IonNote, IonItemSliding, IonItemOptions, IonItemOption 
+} from '@ionic/vue';
+import { Chart, type ChartOptions } from 'chart.js/auto';
 
-## **⚙️ Script Funcional**
-```ts
-<script setup>
-import { ref, onMounted, watch } from "vue";
-import { useRouter } from "vue-router";
-import {
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonItem,
-  IonInput,
-  IonButton,
-  IonLabel,
-  IonList,
-  IonButtons,
-} from "@ionic/vue";
-
-const router = useRouter();
-const foodName = ref("");
-const calories = ref("");
-const history = ref([]);
-const totalCalories = ref(0);
-const user = ref(null);
-
-const getUser = () => {
-  return JSON.parse(localStorage.getItem("user"));
+type CalorieEntry = {
+  id: number;
+  calories: number;
+  date: string;
+  time: string;
+  description: string;
 };
 
-const loadFromStorage = () => {
-  user.value = getUser();
-  if (!user.value) {
-    history.value = [];
-    totalCalories.value = 0;
-    return;
-  }
+const newCalories = ref<number | null>(null);
+const newDate = ref(new Date().toISOString().split('T')[0]);
+const newTime = ref(new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
+const newDescription = ref('');
 
-  const userKey = `caloriesHistory_${user.value.email}`;
-  const savedHistory = JSON.parse(localStorage.getItem(userKey)) || [];
-  history.value = savedHistory;
-  totalCalories.value = savedHistory.reduce((sum, entry) => sum + entry.calories, 0);
-};
+const entries = ref<CalorieEntry[]>([]);
+let chart: Chart | null = null;
 
-const saveToStorage = () => {
-  if (user.value) {
-    const userKey = `caloriesHistory_${user.value.email}`;
-    localStorage.setItem(userKey, JSON.stringify(history.value));
-  }
-};
-
-const addEntry = () => {
-  if (!foodName.value || !calories.value) return;
-  if (!user.value) {
-    alert("Debes iniciar sesión para guardar datos.");
-    return;
-  }
-
-  const newEntry = { food: foodName.value, calories: Number(calories.value) };
-  history.value.push(newEntry);
-  totalCalories.value += newEntry.calories;
-
-  saveToStorage();
-
-  foodName.value = "";
-  calories.value = "";
-};
-
-const removeEntry = (index) => {
-  totalCalories.value -= history.value[index].calories;
-  history.value.splice(index, 1);
-  saveToStorage();
-};
-
-const resetAll = () => {
-  history.value = [];
-  totalCalories.value = 0;
-  if (user.value) {
-    const userKey = `caloriesHistory_${user.value.email}`;
-    localStorage.removeItem(userKey);
-  }
-};
-
-const logout = () => {
-  localStorage.removeItem("user");
-  history.value = [];
-  totalCalories.value = 0;
-  router.push("/login");
-};
-
-watch(user, () => {
-  loadFromStorage();
+// Cargar datos
+onMounted(() => {
+  const savedEntries = localStorage.getItem('calorieEntries');
+  if (savedEntries) entries.value = JSON.parse(savedEntries);
+  initChart();
 });
 
-onMounted(loadFromStorage);
+// Añadir entrada
+const addEntry = () => {
+  if (!newCalories.value) return;
+
+  entries.value.push({
+    id: Date.now(),
+    calories: newCalories.value,
+    date: newDate.value,
+    time: newTime.value,
+    description: newDescription.value,
+  });
+
+  saveToLocalStorage();
+  resetForm();
+};
+
+// Eliminar entrada
+const removeEntry = (id: number) => {
+  entries.value = entries.value.filter(entry => entry.id !== id);
+  saveToLocalStorage();
+};
+
+// Guardar en localStorage
+const saveToLocalStorage = () => {
+  localStorage.setItem('calorieEntries', JSON.stringify(entries.value));
+};
+
+// Formatear fecha
+const formatDateTime = (date: string, time: string) => {
+  const options: Intl.DateTimeFormatOptions = { 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric' 
+  };
+  return `${new Date(date).toLocaleDateString('es-ES', options)} - ${time}`;
+};
+
+// Reiniciar formulario
+const resetForm = () => {
+  newCalories.value = null;
+  newDate.value = new Date().toISOString().split('T')[0];
+  newTime.value = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+  newDescription.value = '';
+};
+
+// Inicializar gráfica
+const initChart = () => {
+  const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+  if (!ctx) return;
+
+  if (chart) chart.destroy();
+
+  // Procesar datos
+  const groupedData = entries.value.reduce((acc, entry) => {
+    acc[entry.date] = (acc[entry.date] || 0) + entry.calories;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const sortedDates = Object.keys(groupedData).sort(
+    (a, b) => new Date(a).getTime() - new Date(b).getTime()
+  );
+
+  // Configuración del Chart
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: sortedDates,
+      datasets: [{
+        label: 'Calorías Diarias',
+        data: sortedDates.map(date => groupedData[date]),
+        borderColor: '#3880ff',
+        backgroundColor: 'rgba(56, 128, 255, 0.2)',
+        borderWidth: 2,
+        tension: 0.4,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { mode: 'index' }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Fecha' } },
+        y: { 
+          title: { display: true, text: 'Calorías' },
+          beginAtZero: true,
+          ticks: { precision: 0 }
+        }
+      }
+    } as ChartOptions
+  });
+};
+
+// Actualizar gráfica al cambiar datos
+watch(entries, () => {
+  initChart();
+}, { deep: true });
 </script>
+
 <style scoped>
-.ion-padding {
-  padding: 16px;
+.chart-container {
+  margin: 2rem 0;
+  height: 300px;
+  width: 100%;
+  position: relative;
 }
 
-ion-list {
-  margin-top: 20px;
+#myChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+ion-item-sliding {
+  margin-bottom: 8px;
 }
 
 ion-item {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #ccc;
+  --background: var(--ion-color-light);
+  border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
 }
 
-ion-label {
-  text-align: center;
-  flex: 1;
+ion-note {
+  font-weight: 500;
+  font-size: 1rem;
 }
 </style>
