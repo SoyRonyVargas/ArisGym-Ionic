@@ -2,18 +2,33 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import TabsPage from '../views/TabsPage.vue'
 import Detallecomida from '@/views/Detallecomida.vue';
-import { Component } from 'ionicons/dist/types/stencil-public-runtime';
-import CardioPage from '../views/CardioPage.vue';
+import Login from '@/views/Login.vue';
+import Register from '@/views/Register.vue';
 
+const isAuthenticated = () => !!localStorage.getItem('user');
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: isAuthenticated() ? '/tabs/tab1' : '/login'
   },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/register',
+    component: Register
+  },
+  
+  //{
+   // path: '/',
+  //  redirect: '/tabs/tab1'
+  //},
   {
     path: '/tabs/',
     component: TabsPage,
+    meta: { requiresAuth: true }, // 🔒 Protección de rutas
     children: [
       {
         path: '',
@@ -58,6 +73,14 @@ component : Detallecomida
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
-})
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth && !isAuthenticated()) {
+    next('/login'); // Si no está autenticado, va al login
+  } else {
+    next();
+  }
+});
 
 export default router

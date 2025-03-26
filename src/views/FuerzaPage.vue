@@ -41,16 +41,16 @@
   
   </script>
 
-<style scoped>
-.toolbar-icon {
-    align-items: right;
-    width: 15%;
-    height: 15%;
-    object-fit: fill;
-    margin-left: 85%;
+   <style scoped>
+ .toolbar-icon {
+     align-items: right;
+     width: 15%;
+     height: 15%;
+     object-fit: fill;
+     margin-left: 85%;
 }
-   
+    
 </style>
- 
+  
   
   

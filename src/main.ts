@@ -34,6 +34,11 @@ import '@ionic/vue/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
+
+/* Inicialización de la conexión SQLite */
+import { CapacitorSQLite } from '@capacitor-community/sqlite';
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
