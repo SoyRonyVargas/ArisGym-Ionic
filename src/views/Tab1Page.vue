@@ -63,8 +63,9 @@ import {
   IonButton,
   IonButtons,
 } from "@ionic/vue";
-import { barbell, heart, body ,logOut} from "ionicons/icons"; 
+import { barbell, heart, body, logOut } from "ionicons/icons"; 
 import { useRouter } from "vue-router"; 
+import { Preferences } from "@capacitor/preferences";
 
 const router = useRouter(); 
 const handleImageClick = (categoria: string) => {
@@ -76,9 +77,10 @@ const handleImageClick = (categoria: string) => {
   router.push(rutas[categoria]);
 };
 
-const logout = () => {
-  // Eliminar la sesión o el token guardado, si es necesario
-  localStorage.removeItem('user'); // Elimina el usuario guardado
+const logout = async () => {
+  // Eliminar la sesión guardada en Capacitor Preferences
+  await Preferences.remove({ key: "isLoggedIn" });
+  await Preferences.remove({ key: "loginTime" });
 
   // Redirigir al login
   router.push('/login');
