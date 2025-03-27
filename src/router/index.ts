@@ -4,6 +4,7 @@ import TabsPage from '../views/TabsPage.vue'
 import Detallecomida from '@/views/Detallecomida.vue';
 import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
+import DetalleFuerza from '@/views/DetalleFuerza.vue';
 
 const isAuthenticated = () => !!localStorage.getItem('user');
 
@@ -63,7 +64,12 @@ const routes: Array<RouteRecordRaw> = [
 path: 'detallescomida/:id',
 component : Detallecomida
 
+      },
+       {
+        path: 'detallesfuerza/:id',
+      component : DetalleFuerza
       }
+
     ]
   },
 
