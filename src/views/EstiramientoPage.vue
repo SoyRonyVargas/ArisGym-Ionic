@@ -23,7 +23,7 @@
       <div>
         
         <ion-card>
-          <img alt="Estiramiento de espalda" src="" />
+          <img alt="Estiramiento de espalda" src="/estespalda.png" />
           <ion-card-header>
             <ion-card-title>Estiramiento de Espalda</ion-card-title>
           </ion-card-header>
@@ -34,7 +34,7 @@
 
         
         <ion-card>
-          <img alt="Estiramiento de hombros" src="" />
+          <img alt="Estiramiento de hombros" src="/esthombro.png" />
           <ion-card-header>
             <ion-card-title>Estiramiento de Hombros</ion-card-title>
           </ion-card-header>
@@ -45,7 +45,7 @@
 
        
         <ion-card>
-          <img alt="Estiramiento de piernas" src="" />
+          <img alt="Estiramiento de piernas" src="/estpierna.png" />
           <ion-card-header>
             <ion-card-title>Estiramiento de Piernas</ion-card-title>
           </ion-card-header>
@@ -56,7 +56,7 @@
 
        
         <ion-card>
-          <img alt="Estiramiento de cuello" src="" />
+          <img alt="Estiramiento de cuello" src="/estcuello.png" />
           <ion-card-header>
             <ion-card-title>Estiramiento de Cuello</ion-card-title>
           </ion-card-header>
@@ -67,7 +67,7 @@
 
        
         <ion-card>
-          <img alt="Estiramiento de brazos" src="" />
+          <img alt="Estiramiento de brazos" src="/estbrazo.png" />
           <ion-card-header>
             <ion-card-title>Estiramiento de Brazos</ion-card-title>
           </ion-card-header>
@@ -78,7 +78,7 @@
 
         
         <ion-card>
-          <img alt="Estiramiento de torso" src="" />
+          <img alt="Estiramiento de torso" src="/esttorso.png" />
           <ion-card-header>
             <ion-card-title>Estiramiento de Torso</ion-card-title>
           </ion-card-header>
