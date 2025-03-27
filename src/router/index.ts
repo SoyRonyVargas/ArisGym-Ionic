@@ -102,7 +102,7 @@ async function checkAuthStatus() {
 
   if (isLoggedIn === 'true' && loginTime) {
     const currentTime = Date.now();
-    const sessionDuration = 3 * 60 * 1000; // 3 minutos
+    const sessionDuration = 10 * 60 * 1000; // 10 minutos
     return currentTime - parseInt(loginTime) < sessionDuration;
   }
   return false;
