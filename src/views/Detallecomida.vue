@@ -5,7 +5,7 @@
                     <ion-buttons slot="start">
           <ion-back-button default-href="/tabs/Tab2"></ion-back-button>
         </ion-buttons>
-                    <img src="../assets/image.png" alt="icono" class="toolbar-icon" />
+                    <img src="/image.png" alt="icono" class="toolbar-icon" />
                     <ion-title>Calorias - {{ typeDeAlimento[0]?.nombre }}</ion-title>
                </ion-toolbar>
           </ion-header>

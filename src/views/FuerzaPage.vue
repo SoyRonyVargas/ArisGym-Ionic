@@ -6,7 +6,7 @@
           <ion-back-button default-href="/tabs/Tab1"></ion-back-button>
         </ion-buttons>
         <ion-title>ARISGYM - FUERZA</ion-title>
-        <img src="../assets/image.png" alt="icono" class="toolbar-icon" />
+        <img src="/image.png" alt="icono" class="toolbar-icon" />
       </ion-toolbar>
     </ion-header>
 

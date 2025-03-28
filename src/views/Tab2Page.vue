@@ -11,7 +11,7 @@
 
     <ion-content :fullscreen="true">
       
-      <img src="../assets/Frame 3.png" alt="promocional" class="banner-image">
+      <img src="/Frame 3.png" alt="promocional" class="banner-image">
       
       <div class="presentacion">
         <h1>¡Bienvenido a ARISFOOD!</h1>
